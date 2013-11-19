@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" blendMode="SRC_OVER" cache="false" cacheHint="DEFAULT" depthTest="DISABLE" disable="false" focusTraversable="false" maxWidth="-1.0" mouseTransparent="false" opacity="1.0" prefHeight="662.0" prefWidth="1224.0" snapToPixel="true" visible="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="jobcenter.JobCenterController">
+  <children>
+    <Pane layoutX="0.0" layoutY="23.0" prefHeight="499.0" prefWidth="862.0">
+      <children>
+        <ImageView blendMode="SOFT_LIGHT" fitHeight="650.0" fitWidth="1235.0" focusTraversable="false" layoutX="0.0" layoutY="0.0" opacity="1.0" pickOnBounds="true" preserveRatio="false" smooth="true" visible="true">
+          <image>
+            <Image url="@grid-background-09.jpg" />
+          </image>
+        </ImageView>
+        <TitledPane animated="true" blendMode="DIFFERENCE" collapsible="false" font="$x1" layoutX="427.0" layoutY="227.0" minWidth="374.0" opacity="0.86" prefHeight="233.0" prefWidth="382.0" text="Login">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" opacity="0.75" prefHeight="231.0" prefWidth="378.0">
+              <children>
+                <TextField id="userid" fx:id="usernameStr" layoutX="113.0" layoutY="32.0" prefHeight="46.0" prefWidth="223.0" />
+                <Text layoutX="35.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+                  <font>
+                    <Font name="System Bold" size="12.0" fx:id="x1" />
+                  </font>
+                </Text>
+                <Text font="$x1" layoutX="35.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+                <PasswordField id="password" fx:id="passwd" layoutX="113.0" layoutY="98.0" prefHeight="45.999900000002526" prefWidth="223.0" />
+                <Button fx:id="b1" font="$x1" layoutX="266.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="37.0" prefWidth="70.0" text="Login" />
+              </children>
+            </AnchorPane>
+          </content>
+        </TitledPane>
+        <ImageView cache="true" cacheHint="QUALITY" fitHeight="89.0" fitWidth="1291.0" focusTraversable="false" layoutX="0.0" layoutY="0.0" mouseTransparent="false" opacity="0.76" pickOnBounds="true" preserveRatio="false">
+          <image>
+            <Image url="@logo.jpg" />
+          </image>
+        </ImageView>
+        <Text fx:id="DatabaseText" layoutX="14.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+      </children>
+    </Pane>
+    <MenuBar blendMode="DARKEN" layoutX="0.0" layoutY="-1.0" opacity="1.0" prefWidth="1317.0">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Close" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Delete" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+  </children>
+</AnchorPane>
