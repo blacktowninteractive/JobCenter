@@ -118,52 +118,46 @@
         <Pane fx:id="CreateJobBox" blendMode="DIFFERENCE" focusTraversable="false" layoutX="0.0" layoutY="0.0" prefHeight="622.0" prefWidth="1052.0" visible="true">
           <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bfbfbf" height="597.0" layoutX="-2.0" layoutY="23.0" stroke="BLACK" strokeType="INSIDE" width="1054.0" />
-            <TitledPane fx:id="createJob" animated="false" collapsible="false" layoutX="12.0" layoutY="44.0" minWidth="293.0" prefHeight="538.0" prefWidth="574.0" text="Create New Job" visible="true" wrapText="false">
+            <TitledPane fx:id="createJob" animated="false" collapsible="false" layoutX="12.0" layoutY="44.0" minWidth="293.0" prefHeight="538.0" prefWidth="539.0" text="Create New Job" visible="true" wrapText="false">
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.9998779296875" prefWidth="570.0">
                   <children>
-                    <Text layoutX="19.0" layoutY="45.0" scaleX="1.0" scaleY="1.000006265295975" strokeType="OUTSIDE" strokeWidth="0.0" text="Job#" />
-                    <Text layoutX="19.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Job Name" />
-                    <Text layoutX="19.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cust Job #" />
-                    <Text layoutX="19.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cust Job Name" />
-                    <Text layoutX="19.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" />
-                    <Text layoutX="19.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Time" />
+                    <Text layoutX="18.0" layoutY="51.0" scaleX="1.0" scaleY="1.000006265295975" strokeType="OUTSIDE" strokeWidth="0.0" text="Job#" />
+                    <Text layoutX="18.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Job Name" />
+                    <Text layoutX="18.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cust Job #" />
+                    <Text layoutX="18.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cust Job Name" />
+                    <Text layoutX="18.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" />
+                    <Text layoutX="18.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Time" />
                     <Text font="$x1" layoutX="14.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Job Information" underline="true" />
                     <Text font="$x1" layoutX="14.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer" underline="true" />
-                    <TextField blendMode="DIFFERENCE" layoutX="115.0" layoutY="30.0" prefWidth="159.0" />
-                    <TextField blendMode="DIFFERENCE" layoutX="115.0" layoutY="50.0" prefWidth="159.0" />
-                    <TextField blendMode="DIFFERENCE" layoutX="115.0" layoutY="70.0" prefWidth="159.0" />
-                    <TextField blendMode="DIFFERENCE" layoutX="115.0" layoutY="90.0" prefWidth="159.0" />
-                    <TextField blendMode="DIFFERENCE" layoutX="115.0" layoutY="110.0" prefWidth="159.0" />
-                    <TextField blendMode="DIFFERENCE" layoutX="115.0" layoutY="130.0" prefWidth="159.0" />
-                    <Text layoutX="19.0" layoutY="200.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
+                    <TextField fx:id="jobTitle" blendMode="DIFFERENCE" layoutX="114.0" layoutY="36.0" prefWidth="159.0" />
+                    <TextField fx:id="jobName" blendMode="DIFFERENCE" layoutX="114.0" layoutY="56.0" prefWidth="159.0" />
+                    <TextField fx:id="custJobNum" blendMode="DIFFERENCE" layoutX="114.0" layoutY="76.0" prefWidth="159.0" />
+                    <TextField fx:id="custJobName" blendMode="DIFFERENCE" layoutX="114.0" layoutY="96.0" prefWidth="159.0" />
+                    <TextField fx:id="startDate" blendMode="DIFFERENCE" layoutX="114.0" layoutY="116.0" prefWidth="159.0" />
+                    <TextField fx:id="startTime" blendMode="DIFFERENCE" layoutX="114.0" layoutY="136.0" prefWidth="159.0" />
+                    <Text layoutX="19.0" layoutY="200.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Company Name:" />
                     <Text layoutX="19.0" layoutY="215.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Street Address:" />
-                    <Text layoutX="19.0" layoutY="244.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="City:" />
-                    <Text layoutX="19.0" layoutY="259.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="State:" />
-                    <Text layoutX="89.0" layoutY="259.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Zip:" />
-                    <Text layoutX="19.0" layoutY="275.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Point of contact:" />
-                    <Text layoutX="19.0" layoutY="290.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone:" />
-                    <Text layoutX="19.0" layoutY="305.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Secondary contact:" />
-                    <Text layoutX="19.0" layoutY="320.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone:" />
-                    <Text font="$x1" layoutX="297.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Job Site" underline="true" />
-                    <Text layoutX="303.0" layoutY="46.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Street Address" />
-                    <Text layoutX="303.0" layoutY="66.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
-                    <Text layoutX="303.0" layoutY="86.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="State" />
-                    <Text layoutX="303.0" layoutY="106.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Zip" />
-                    <TextField blendMode="DIFFERENCE" layoutX="390.0" layoutY="30.0" prefWidth="159.0" />
-                    <TextField blendMode="DIFFERENCE" layoutX="390.0" layoutY="50.0" prefWidth="159.0" />
-                    <TextField blendMode="DIFFERENCE" layoutX="390.0" layoutY="70.0" prefWidth="159.0" />
-                    <TextField blendMode="DIFFERENCE" layoutX="390.0" layoutY="90.0" prefWidth="159.0" />
-                    <ImageView fitHeight="23.94140625" fitWidth="31.921875" layoutX="464.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
-                      <image>
-                        <Image url="@directions.jpg" />
-                      </image>
-                    </ImageView>
-                    <Text font="$x1" layoutX="492.0" layoutY="142.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Directions" underline="false" />
+                    <Text layoutX="19.0" layoutY="231.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="City:" />
+                    <Text layoutX="252.0" layoutY="231.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="State:" />
+                    <Text layoutX="322.0" layoutY="231.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Zip:" />
+                    <Text layoutX="19.0" layoutY="246.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Point of contact:" />
+                    <Text layoutX="19.0" layoutY="261.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone:" />
+                    <Text layoutX="252.0" layoutY="246.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Company phone:" />
+                    <Text layoutX="252.0" layoutY="261.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Fax:" />
+                    <Text font="$x1" layoutX="298.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Job Site" underline="true" />
+                    <Text layoutX="303.0" layoutY="92.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Street Address" />
+                    <Text layoutX="303.0" layoutY="112.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
+                    <Text layoutX="303.0" layoutY="132.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="State" />
+                    <Text layoutX="303.0" layoutY="152.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Zip" />
+                    <TextField fx:id="streetAddr" blendMode="DIFFERENCE" layoutX="390.0" layoutY="76.0" prefWidth="133.0" />
+                    <TextField fx:id="city" blendMode="DIFFERENCE" layoutX="390.0" layoutY="96.0" prefWidth="133.0" />
+                    <TextField fx:id="state" blendMode="DIFFERENCE" layoutX="390.0" layoutY="116.0" prefWidth="133.0" />
+                    <TextField fx:id="zip" blendMode="DIFFERENCE" layoutX="390.0" layoutY="136.0" prefWidth="133.0" />
                     <Text font="$x1" layoutX="235.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions (disposal)" underline="true" />
-                    <Text font="$x1" layoutX="14.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Billing" underline="true" />
-                    <RadioButton blendMode="SRC_OVER" layoutX="19.0" layoutY="355.0" mnemonicParsing="false" text="Hourly" />
-                    <RadioButton blendMode="SRC_OVER" layoutX="89.0" layoutY="355.0" mnemonicParsing="false" text="Production" />
+                    <Text font="$x1" layoutX="297.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Billing" underline="true" />
+                    <RadioButton blendMode="SRC_OVER" layoutX="302.0" layoutY="32.0" mnemonicParsing="false" text="Hourly" />
+                    <RadioButton blendMode="SRC_OVER" layoutX="372.0" layoutY="32.0" mnemonicParsing="false" text="Production" />
                     <Text font="$x1" layoutX="14.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions (traffic control)" underline="true" />
                     <Text font="$x1" layoutX="235.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions (water source)" underline="true" />
                     <Text font="$x1" layoutX="14.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Special Instructions" underline="true" />
@@ -171,10 +165,23 @@
                     <TextArea blendMode="DIFFERENCE" layoutX="235.0" layoutY="401.0" prefHeight="38.532501220703125" prefWidth="204.0" promptText="" wrapText="true" />
                     <TextArea blendMode="DIFFERENCE" layoutX="14.0" layoutY="463.0" prefHeight="38.532501220703125" prefWidth="204.0" promptText="" wrapText="true" />
                     <TextArea blendMode="DIFFERENCE" layoutX="235.0" layoutY="463.0" prefHeight="38.532501220703125" prefWidth="204.0" promptText="" wrapText="true" />
-                    <Text font="$x1" layoutX="298.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Task" underline="true" />
-                    <Text font="$x1" layoutX="386.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diameter" underline="true" />
-                    <Text font="$x1" layoutX="464.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feet" underline="true" />
-                    <ChoiceBox layoutX="303.0" layoutY="188.0">
+                    <Text font="$x1" layoutX="14.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Task" underline="true" />
+                    <Text font="$x1" layoutX="158.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diameter" underline="true" />
+                    <Text font="$x1" layoutX="233.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feet" underline="true" />
+                    <TextField blendMode="DIFFERENCE" layoutX="158.0" layoutY="293.0" prefWidth="68.0" />
+                    <TextField blendMode="DIFFERENCE" layoutX="233.0" layoutY="293.0" prefWidth="68.0" />
+                    <Text fx:id="setCustName" font="$x1" layoutX="115.0" layoutY="200.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="test" />
+                    <Text fx:id="setCustAddr" layoutX="115.0" layoutY="215.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="test" />
+                    <Text fx:id="setCustCity" layoutX="115.0" layoutY="231.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="test" />
+                    <Text fx:id="setCustState" layoutX="288.0" layoutY="231.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="test" />
+                    <Text fx:id="setCustZip" layoutX="348.0" layoutY="231.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="test" />
+                    <Text fx:id="setCustPOC" layoutX="115.0" layoutY="246.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="test" />
+                    <Text fx:id="setCustPhone" layoutX="115.0" layoutY="261.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="test" />
+                    <Text fx:id="setCustCompPhone" layoutX="348.0" layoutY="246.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="test" />
+                    <Text id="setCustFas" fx:id="setCustFax" layoutX="348.0" layoutY="261.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="test" />
+                    <ListView fx:id="taskTypeList" layoutX="14.0" layoutY="324.0" prefHeight="61.0" prefWidth="388.0" />
+                    <Button fx:id="addTask" layoutX="309.0" layoutY="293.0" mnemonicParsing="false" onAction="#addTaskList" prefHeight="22.0" text="Add" />
+                    <ComboBox fx:id="taskComboBox" layoutX="14.0" layoutY="293.0" prefHeight="21.0" prefWidth="133.0">
                       <items>
                         <FXCollections fx:factory="observableArrayList">
                           <String fx:value="Item 1" />
@@ -182,64 +189,8 @@
                           <String fx:value="Item 3" />
                         </FXCollections>
                       </items>
-                    </ChoiceBox>
-                    <TextField blendMode="DIFFERENCE" layoutX="386.0" layoutY="188.0" prefWidth="68.0" />
-                    <TextField blendMode="DIFFERENCE" layoutX="464.0" layoutY="188.0" prefWidth="68.0" />
-                    <ChoiceBox layoutX="303.0" layoutY="218.0">
-                      <items>
-                        <FXCollections fx:factory="observableArrayList">
-                          <String fx:value="Item 1" />
-                          <String fx:value="Item 2" />
-                          <String fx:value="Item 3" />
-                        </FXCollections>
-                      </items>
-                    </ChoiceBox>
-                    <ChoiceBox layoutX="303.0" layoutY="248.0">
-                      <items>
-                        <FXCollections fx:factory="observableArrayList">
-                          <String fx:value="Item 1" />
-                          <String fx:value="Item 2" />
-                          <String fx:value="Item 3" />
-                        </FXCollections>
-                      </items>
-                    </ChoiceBox>
-                    <TextField blendMode="DIFFERENCE" layoutX="386.0" layoutY="218.0" prefWidth="68.0" />
-                    <TextField blendMode="DIFFERENCE" layoutX="464.0" layoutY="218.0" prefWidth="68.0" />
-                    <TextField blendMode="DIFFERENCE" layoutX="386.0" layoutY="248.0" prefWidth="68.0" />
-                    <TextField blendMode="DIFFERENCE" layoutX="464.0" layoutY="248.0" prefWidth="68.0" />
-                    <ChoiceBox layoutX="303.0" layoutY="277.0">
-                      <items>
-                        <FXCollections fx:factory="observableArrayList">
-                          <String fx:value="Item 1" />
-                          <String fx:value="Item 2" />
-                          <String fx:value="Item 3" />
-                        </FXCollections>
-                      </items>
-                    </ChoiceBox>
-                    <TextField blendMode="DIFFERENCE" layoutX="386.0" layoutY="277.0" prefWidth="68.0" />
-                    <TextField blendMode="DIFFERENCE" layoutX="464.0" layoutY="277.0" prefWidth="68.0" />
-                    <ChoiceBox layoutX="303.0" layoutY="307.0">
-                      <items>
-                        <FXCollections fx:factory="observableArrayList">
-                          <String fx:value="Item 1" />
-                          <String fx:value="Item 2" />
-                          <String fx:value="Item 3" />
-                        </FXCollections>
-                      </items>
-                    </ChoiceBox>
-                    <ChoiceBox layoutX="303.0" layoutY="337.0">
-                      <items>
-                        <FXCollections fx:factory="observableArrayList">
-                          <String fx:value="Item 1" />
-                          <String fx:value="Item 2" />
-                          <String fx:value="Item 3" />
-                        </FXCollections>
-                      </items>
-                    </ChoiceBox>
-                    <TextField blendMode="DIFFERENCE" layoutX="386.0" layoutY="307.0" prefWidth="68.0" />
-                    <TextField blendMode="DIFFERENCE" layoutX="464.0" layoutY="307.0" prefWidth="68.0" />
-                    <TextField blendMode="DIFFERENCE" layoutX="386.0" layoutY="337.0" prefWidth="68.0" />
-                    <TextField blendMode="DIFFERENCE" layoutX="464.0" layoutY="337.0" prefWidth="68.0" />
+                    </ComboBox>
+                    <Button id="" layoutX="360.0" layoutY="293.0" mnemonicParsing="false" onAction="#addTaskList" prefHeight="22.0" text="Del" />
                   </children>
                 </AnchorPane>
               </content>
@@ -250,7 +201,7 @@
                 <Button fx:id="clearJob" mnemonicParsing="false" onAction="#clearJobEntries" text="Clear" />
               </items>
             </ToolBar>
-            <TitledPane id="employeeSelect" animated="false" collapsible="false" layoutX="603.0" layoutY="226.0" prefHeight="174.0001220703125" prefWidth="405.0" text="Employees">
+            <TitledPane id="employeeSelect" animated="false" collapsible="false" layoutX="585.0" layoutY="224.0" prefHeight="174.0001220703125" prefWidth="405.0" text="Employees">
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
@@ -271,7 +222,7 @@
                 </AnchorPane>
               </content>
             </TitledPane>
-            <TitledPane id="vehicleEquipSelect" animated="false" collapsible="false" layoutX="603.0" layoutY="415.0" prefHeight="165.00009155273438" prefWidth="404.99995585936995" text="Vehicles/Equipment">
+            <TitledPane id="vehicleEquipSelect" animated="false" collapsible="false" layoutX="585.0" layoutY="415.0" prefHeight="165.00009155273438" prefWidth="404.99995585936995" text="Vehicles/Equipment">
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
@@ -293,7 +244,7 @@
                 </AnchorPane>
               </content>
             </TitledPane>
-            <TitledPane id="employeeSelect" animated="false" collapsible="false" layoutX="603.0" layoutY="44.0" prefHeight="165.0001220703125" prefWidth="404.999977929685" text="Customer">
+            <TitledPane id="employeeSelect" animated="false" collapsible="false" layoutX="585.0" layoutY="44.0" prefHeight="165.0001220703125" prefWidth="404.999977929685" text="Customer">
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
@@ -414,7 +365,11 @@
         </Pane>
         <Pane fx:id="settingsPane" layoutX="0.0" layoutY="0.0" prefHeight="606.0" prefWidth="1024.0" visible="false">
           <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#202020" height="608.0" layoutX="-2.0" layoutY="-2.0" stroke="#202020" strokeType="INSIDE" width="1024.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="608.0" layoutX="-2.0" layoutY="-2.0" stroke="$x7" strokeType="INSIDE" width="1024.0">
+              <fill>
+                <Color blue="0.125" green="0.125" red="0.125" fx:id="x7" />
+              </fill>
+            </Rectangle>
             <Pane blendMode="DIFFERENCE" layoutX="14.0" layoutY="14.0" prefHeight="365.99999237060547" prefWidth="468.0">
               <children>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="229.00009155273438" layoutX="4.0" layoutY="4.0" stroke="#404040" strokeType="INSIDE" width="450.0" />

@@ -79,7 +79,7 @@ public class JobCenterMainController implements Initializable, ScreenController 
     private static Connection conn;
     private ScreenPane myScreenPane;
     public ListView adminList, taskList, proList, employeeSelect, employeeSelected,
-            vehicleEquipSelect, vehicleEquipSelected, custListing;
+            vehicleEquipSelect, vehicleEquipSelected, custListing, taskTypeList;
     public Label changeMe;
     public TitledPane ManagerStatus, PeopleBox, VehiclesBox, ReportsBox, createJob;
     public Pane CreateJobBox, settingsPane, displayJobs;
@@ -87,9 +87,16 @@ public class JobCenterMainController implements Initializable, ScreenController 
     public TableView usersTable;
     public TableView<employee> employeeTable = new TableView<employee>();
     public TableColumn emp_fname, emp_lname, emp_phone, emp_email;
-    public Button chgPasswd, addEmp, addVehBut, deleteVehBut, clearJob, 
-            saveJob, confirmJob, cancelJob, addCustBut;
-    public ComboBox screenList;
+    public Button chgPasswd, addEmp, addVehBut, deleteVehBut, clearJob,
+            saveJob, confirmJob, cancelJob, addCustBut, addTask;
+    //All stuff on job creation form
+    public Text setCustPhone, setCustName, setCustCity, setCustState, setCustPOC, setCustCompPhone,
+            setCustFax, setCustAddr, setCustZip;
+    public TextField jobTitle, jobName, custJobNum, custJobName, startDate, startTime,
+            streetAddr, city, state, zip;
+    String jobTitleStr, jobNameStr, custJobNumStr, custJobNameStr, startDateStr, startTimeStr,
+            streetAddrStr, cityStr, stateStr, zipStr, custAdd, phone, fax, pocName, pocPhone;
+    public ComboBox screenList, taskComboBox;
     ObservableList<String> admin = FXCollections.observableArrayList(
             "Manager status", "People", "Vehicles", "Create/Delete a JobCenter User", "Settings");
     //ObservableList<String> functions = FXCollections.observableArrayList(
@@ -100,20 +107,16 @@ public class JobCenterMainController implements Initializable, ScreenController 
             "New proposal");
     List<String> list = new ArrayList<String>();
     ObservableList<String> options = FXCollections.observableList(list);
+    ObservableList<String> taskListBox = FXCollections.observableList(list);
+    ObservableList<String> taskTypeListStr = FXCollections.observableList(list);
     
     List<String> empListSel = new ArrayList<String>();
     List<String> vehList = new ArrayList<String>();
     List<String> custList = new ArrayList<String>();
     List<String> jobTypePicked = new ArrayList<String>();
-    
     ObservableList<String> vehList11 = FXCollections.observableArrayList(vehList);
     ObservableList<String> empSelect = FXCollections.observableArrayList(empListSel);
     ObservableList<String> custListingObs = FXCollections.observableArrayList(custList);
-    
-    TextField jTitleField = new TextField(),
-            jCustField = new TextField(),
-            jNameField = new TextField(),
-            jStartField = new TextField();
 
     /**
      * Initializes the controller class.
@@ -217,7 +220,7 @@ public class JobCenterMainController implements Initializable, ScreenController 
 
         CreateJobBox.setVisible(false);
         settingsPane.setVisible(false);
-        
+
         displayJobs.setVisible(false);
 
     }
@@ -231,7 +234,7 @@ public class JobCenterMainController implements Initializable, ScreenController 
 
 
         List<String> empList = new ArrayList<String>();
-        List<String> vehList = new ArrayList<String>(); 
+        List<String> vehList = new ArrayList<String>();
 
         //make the connection
         try {
@@ -254,8 +257,6 @@ public class JobCenterMainController implements Initializable, ScreenController 
                 custList.add(rs.getString(1));
             }
 
-
-
         } catch (SQLException ex) {
             Logger.getLogger(JobCenterController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -269,7 +270,7 @@ public class JobCenterMainController implements Initializable, ScreenController 
         employeeSelect.setItems(emp);
         vehicleEquipSelect.setItems(vehEquip);
         custListing.setItems(custListingObs);
-        
+
         myScreenPane = screenPage;
         adminList.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<String>() {
@@ -338,6 +339,8 @@ public class JobCenterMainController implements Initializable, ScreenController 
 
                 clearPane();
                 if (new_val == "Create new job") {
+                    taskListBox = FXCollections.observableList(new ArrayList<String>()); 
+
                     List<String> getJobTypes = new ArrayList<String>();
                     //make the connection
                     try {
@@ -350,76 +353,18 @@ public class JobCenterMainController implements Initializable, ScreenController 
 
                         }
 
+                        rs = st.executeQuery("select jobName from jobtype;");
+                        while (rs.next()) {
+                            System.out.println(rs.getString(1));
+                            taskListBox.add(rs.getString(1));
+                        }
+
+
 
                     } catch (SQLException ex) {
                         Logger.getLogger(JobCenterController.class.getName()).log(Level.SEVERE, null, ex);
                     }
-/*
-                    //Dialog variable declarations
-                    Button subJob = new Button("Submit");
-                    final Label jTitleLab = new Label("Job #V-: "),
-                            jCustLab = new Label("Customer: "),
-                            jNameLab = new Label("Job Name: "),
-                            jStart = new Label("Start Date: ");
-
-                    //make sure customer field is not editable in order to preserve database
-                    //relationship
-                    jCustField.setEditable(false);
-
-                    GridPane grid = new GridPane();
-                    grid.setVgap(8);
-                    grid.setPadding(new Insets(8, 8, 8, 8));
-                    grid.add(jTitleLab, 0, 0);
-                    grid.add(jTitleField, 1, 0);
-
-                    grid.add(jCustLab, 0, 1);
-                    grid.add(jCustField, 1, 1);
-
-                    grid.add(jNameLab, 0, 2);
-                    grid.add(jNameField, 1, 2);
-
-                    grid.add(jStart, 0, 3);
-                    grid.add(jStartField, 1, 3);
-
-
-                    grid.add(new Label("Job Type "), 0, 6);
-
-                    int tracker = 8;
-                    for (int i = 0; i < getJobTypes.size(); i++) {
-                        final CheckBox test = new CheckBox(getJobTypes.get(i));
-
-                        grid.add(test, 0, 8 + i);
-
-                        test.setOnAction(new EventHandler<ActionEvent>() {
-                            @Override
-                            public void handle(ActionEvent e) {
-
-                                System.out.println(test.getText());
-
-                                //if it doesn't exist then add it
-                                if (!jobTypePicked.contains(test.getText())) {
-                                    jobTypePicked.add(test.getText());
-                                } //if it does exist that means we need to remove it, 
-                                //because the user is clicking on it in order to remove it
-                                else {
-                                    jobTypePicked.remove(test.getText());
-                                }
-
-
-                                System.out.println("current list: ");
-                                for (int i = 0; i < jobTypePicked.size(); i++) {
-                                    System.out.println(jobTypePicked.get(i));
-                                }
-
-
-                            }
-                        });
-
-                        tracker++;
-                    }
-                    createJob.setText("Create new job");
-                    createJob.setContent(grid);
-*/
+                    taskComboBox.setItems(taskListBox);
                     CreateJobBox.setVisible(true);
 
 
@@ -447,19 +392,75 @@ public class JobCenterMainController implements Initializable, ScreenController 
     //*********************************************************************************
     //BUTTON ACTION LISTNERS HERE!!!! this coordinates to the JavaFX Scene Builder
     static Stage stageJob;
+    
+     @FXML
+    private void addTaskList(ActionEvent event) 
+     {
+          String itemChosen = taskComboBox.getValue().toString();
+          
+          System.out.println(itemChosen);
+          
+          taskTypeListStr.add(itemChosen);
+          taskTypeList.setItems(taskTypeListStr);
+          
+     }
 
     @FXML
-    private void addCustButAction(ActionEvent event){
-        String custAdd = custListing.getSelectionModel().selectedItemProperty().getValue().toString();
-        jCustField.setText(custAdd);
+    private void addCustButAction(ActionEvent event) throws SQLException {
+        custAdd = custListing.getSelectionModel().selectedItemProperty().getValue().toString();
+
+        conn = DriverManager.getConnection(url, userdb, passdb);
+        st = conn.createStatement();
+        String qry = "select * from customer where CompanyName ='" + custAdd.trim() + "';";
+        System.out.println("qry: " + qry);
+
+        rs = st.executeQuery(qry);
+        while (rs.next()) {
+            streetAddrStr = rs.getString(4);
+            cityStr = rs.getString(5);
+            stateStr = rs.getString(6);
+            zipStr = rs.getString(7);
+            phone = rs.getString(8);
+            fax = rs.getString(9);
+            pocName = rs.getString(14);
+            pocPhone = rs.getString(15);
+
+            //custList.add(rs.getString(1));
+        }
+        setCustPhone.setText(phone);
+        setCustName.setText(custAdd.trim());
+        setCustCity.setText(cityStr);
+        setCustState.setText(stateStr);
+        setCustPOC.setText(pocPhone);
+        setCustCompPhone.setText(phone);
+        setCustFax.setText(fax);
+        setCustAddr.setText(streetAddrStr);
+        setCustZip.setText(zipStr);
+
     }
 
-    String getTitle="a";
-    
     @FXML
     private void saveJobDb(ActionEvent event) throws SQLException, IOException {
-        getTitle = jTitleField.getText();
-        
+
+        jobTitleStr = jobTitle.getText();
+        jobNameStr = jobName.getText();
+        custJobNumStr = custJobNum.getText();
+        custJobNameStr = custJobName.getText();
+        startDateStr = jobName.getText();
+        startTimeStr = custJobNum.getText();
+
+        System.out.println("Job title: " + jobTitleStr);
+        System.out.println("Job name: " + jobNameStr);
+        System.out.println("Cust job #: " + custJobNumStr);
+        System.out.println("Cust job name: " + custJobNameStr);
+        System.out.println("start date: " + startDateStr);
+        System.out.println("start time: " + startTimeStr);
+        System.out.println("street: " + streetAddr.getText());
+        System.out.println("city: " + city.getText());
+        System.out.println("state: " + state.getText());
+        System.out.println("zip: " + zip.getText());
+
+
         Parent root = FXMLLoader.load(getClass().getResource("confirm_job.fxml"));
 
         Scene scene2 = new Scene(root);
@@ -495,75 +496,8 @@ public class JobCenterMainController implements Initializable, ScreenController 
             }
         } catch (SQLException ex) {
             Logger.getLogger(JobCenterController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        /*
-        //Dialog variable declarations
-        Button subJob = new Button("Submit");
-        final Label jTitleLab = new Label("Job #V-: "),
-                jCustLab = new Label("Customer: "),
-                jNameLab = new Label("Job Name: "),
-                jStart = new Label("Start Date: ");
-
-        jTitleField.setText("");
-        jCustField.setText("");
-        jNameField.setText("");
-        jStartField.setText("");
-
-        //make sure customer field is not editable in order to preserve database
-        //relationship
-        jCustField.setEditable(false);
-
-        GridPane grid = new GridPane();
-        grid.setVgap(8);
-        grid.setPadding(new Insets(8, 8, 8, 8));
-        grid.add(jTitleLab, 0, 0);
-        grid.add(jTitleField, 1, 0);
-
-        grid.add(jCustLab, 0, 1);
-        grid.add(jCustField, 1, 1);
-
-        grid.add(jNameLab, 0, 2);
-        grid.add(jNameField, 1, 2);
-
-        grid.add(jStart, 0, 3);
-        grid.add(jStartField, 1, 3);
-
-        grid.add(new Label("Job Type "), 0, 6);
-
-        int tracker = 8;
-        for (int i = 0; i < getJobTypes.size(); i++) {
-            final CheckBox test = new CheckBox(getJobTypes.get(i));
-
-            grid.add(test, 0, 8 + i);
-
-            test.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent e) {
-                    System.out.println(test.getText());
-
-                    //if it doesn't exist then add it
-                    if (!jobTypePicked.contains(test.getText())) {
-                        jobTypePicked.add(test.getText());
-                    } //if it does exist that means we need to remove it, 
-                    //because the user is clicking on it in order to remove it
-                    else {
-                        jobTypePicked.remove(test.getText());
-                    }
-
-
-                    System.out.println("current list: ");
-                    for (int i = 0; i < jobTypePicked.size(); i++) {
-                        System.out.println(jobTypePicked.get(i));
-                    }
-                }
-            });
-            tracker++;
-        }
-        createJob.setText("Create new job");
-        createJob.setContent(grid);
-*/
-        CreateJobBox.setVisible(true);
-
+        } 
+        CreateJobBox.setVisible(true); 
     }
 
     @FXML

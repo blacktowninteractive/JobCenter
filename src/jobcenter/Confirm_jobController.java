@@ -27,12 +27,7 @@ public class Confirm_jobController extends JobCenterMainController
     }    
 
     @FXML
-    private void confirmJobGo(ActionEvent event) {
-        System.out.println("job v: "+ getTitle); 
-        System.out.println("customer: "+ jCustField.getText()); 
-        System.out.println("job name: "+ jNameField.getText()); 
-        System.out.println("start date: "+ jStartField.getText()); 
-        
+    private void confirmJobGo(ActionEvent event) { 
         
         System.out.println("job type");
         for(int i=0;i<jobTypePicked.size();i++)
