@@ -52,12 +52,17 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.ToolBar;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.BlendMode;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
@@ -84,7 +89,7 @@ public class JobCenterMainController implements Initializable, ScreenController 
             vehicleEquipSelect, vehicleEquipSelected, custListing, taskTypeList;
     public static Label changeMe;
     public static TitledPane ManagerStatus, PeopleBox, VehiclesBox, ReportsBox, createJob;
-    public static Pane CreateJobBox, settingsPane, displayJobs;
+    public static Pane CreateJobBox, settingsPane, displayJobs, employeePane;
     public static ToolBar AdminToolBar, FunctionsToolBar, ReportsToolBar, employeeToolbar;
     public static TableView usersTable;
     public static TableView<employee> employeeTable = new TableView<employee>();
@@ -107,25 +112,23 @@ public class JobCenterMainController implements Initializable, ScreenController 
     //      "Show job board", "Summary report");
     public static ObservableList<String> tasks = FXCollections.observableArrayList(
             "Create new job", "Display jobs");
-    public static  ObservableList<String> proposals = FXCollections.observableArrayList(
+    public static ObservableList<String> proposals = FXCollections.observableArrayList(
             "New proposal");
     public static List<String> list = new ArrayList<String>();
-    
     public static ObservableList<String> options = FXCollections.observableList(list),
-    taskListBox = FXCollections.observableList(list),
-    taskTypeListStr = FXCollections.observableList(list);
-    
+            taskListBox = FXCollections.observableList(list),
+            taskTypeListStr = FXCollections.observableList(list);
     List<String> empListSel = new ArrayList<String>(),
-    vehList = new ArrayList<String>(),
-    custList = new ArrayList<String>(),
-    jobTypePicked = new ArrayList<String>();
-    
+            vehList = new ArrayList<String>(),
+            custList = new ArrayList<String>(),
+            jobTypePicked = new ArrayList<String>();
     ObservableList<String> vehList11 = FXCollections.observableArrayList(vehList),
-    empSelect = FXCollections.observableArrayList(empListSel),
-    custListingObs = FXCollections.observableArrayList(custList);
+            empSelect = FXCollections.observableArrayList(empListSel),
+            custListingObs = FXCollections.observableArrayList(custList);
+    public static String billing, cid, jobtypecompiled, empCompiled, equipCompiled, sI, dI, tI, wI;
     
-    
-    public static String billing, cid, jobtypecompiled, empCompiled, equipCompiled, sI,dI,tI,wI;
+    @FXML
+    TreeView<String> currentJobsDisplay;
 
     /**
      * Initializes the controller class.
@@ -140,9 +143,28 @@ public class JobCenterMainController implements Initializable, ScreenController 
 
         employeeTable.setItems(populateDB());
 
-
+        //if you wanna add an icon in front
+        //   Node rootIcon = new ImageView(new Image(getClass().getResourceAsStream("exchange.png")));
+          
+        
+        TreeItem<String> root = new TreeItem<String>("Active Jobs");        
+        TreeItem<String> empLeaf = new TreeItem<String>("test");           
+        
+        for (TreeItem<String> depNode : root.getChildren())
+        {
+            depNode.getChildren().add(empLeaf);
+            break;
+        }
+        TreeItem<String> depNode = new TreeItem<String>("ALLCON");
+            
+        root.setExpanded(true);
+        root.getChildren().add(depNode);
+          
+        this.currentJobsDisplay.setRoot(root);
+        //.properties.setRoot(root);
 
     }
+    
 
     public ObservableList<employee> populateDB() {
         /*
@@ -221,6 +243,7 @@ public class JobCenterMainController implements Initializable, ScreenController 
         PeopleBox.setVisible(false);
         AdminToolBar.setVisible(false);
         employeeToolbar.setVisible(false);
+        employeePane.setVisible(false);
 
         //FunctionsToolBar.setVisible(false);
 
@@ -233,6 +256,8 @@ public class JobCenterMainController implements Initializable, ScreenController 
         displayJobs.setVisible(false);
 
     }
+    private final Node rootIcon = new ImageView(
+            new Image(getClass().getResourceAsStream("exchange.png")));
 
     @Override
     public void setScreenPane(ScreenPane screenPage) {
@@ -293,8 +318,9 @@ public class JobCenterMainController implements Initializable, ScreenController 
                     AdminToolBar.setVisible(true);
                 }
                 if (new_val == "People") {
-                    PeopleBox.setVisible(true);
-                    employeeToolbar.setVisible(true);
+                    employeePane.setVisible(true);
+                    //PeopleBox.setVisible(true);
+                    //employeeToolbar.setVisible(true);
                 }
                 if (new_val == "Vehicles") {
                     VehiclesBox.setVisible(true);
@@ -380,6 +406,7 @@ public class JobCenterMainController implements Initializable, ScreenController 
                 }
                 if (new_val == "Display jobs") {
                     clearPane();
+
                     displayJobs.setVisible(true);
 
                 }
@@ -471,26 +498,26 @@ public class JobCenterMainController implements Initializable, ScreenController 
         custJobNameStr = custJobName.getText();
         startDateStr = jobName.getText();
         startTimeStr = custJobNum.getText();
-        
-        jobtypecompiled ="";
-        empCompiled="";
-        equipCompiled="";
-        
+
+        jobtypecompiled = "";
+        empCompiled = "";
+        equipCompiled = "";
+
         //compile job types 
         for (int i = 0; i < taskTypeListStr.size(); i++) {
-            jobtypecompiled += "/"+taskTypeListStr.get(i);
+            jobtypecompiled += "/" + taskTypeListStr.get(i);
         }
-        
+
         //compile employees  
-        for(int j=0;j<empListSel.size();j++){
-            empCompiled += "/"+empListSel.get(j);
+        for (int j = 0; j < empListSel.size(); j++) {
+            empCompiled += "/" + empListSel.get(j);
         }
-        
+
         //compile equipment  
-        for(int k=0;k<vehList.size();k++){
-            equipCompiled += "/"+vehList.get(k);
+        for (int k = 0; k < vehList.size(); k++) {
+            equipCompiled += "/" + vehList.get(k);
         }
-        
+
         System.out.println("CID: " + cid);
         System.out.println("Job name: " + jobNameStr);
         System.out.println("Cust job #: " + custJobNumStr);
@@ -509,11 +536,11 @@ public class JobCenterMainController implements Initializable, ScreenController 
             billing = "Hourly Payment";
         }
 
-         sI=sInstr.getText();
-         dI=dInstr.getText();
-         tI=tInstr.getText();
-         wI=wInstr.getText();
-         
+        sI = sInstr.getText();
+        dI = dInstr.getText();
+        tI = tInstr.getText();
+        wI = wInstr.getText();
+
         System.out.println(sI);
         System.out.println(dI);
         System.out.println(tI);
