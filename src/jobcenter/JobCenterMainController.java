@@ -45,8 +45,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.ToolBar;
@@ -71,52 +73,59 @@ import javafx.stage.Stage;
 public class JobCenterMainController implements Initializable, ScreenController {
 
     //database connection info
-    private static String url = "jdbc:mysql://localhost/jobcenter";
-    private static String userdb = "vangfc";//Username of database  
-    private static String passdb = "password";//Password of database
+    public static String url = "jdbc:mysql://localhost/jobcenter";
+    public static String userdb = "vangfc";//Username of database  
+    public static String passdb = "password";//Password of database
     Statement st = null;
     ResultSet rs = null;
-    private static Connection conn;
-    private ScreenPane myScreenPane;
-    public ListView adminList, taskList, proList, employeeSelect, employeeSelected,
+    public static Connection conn;
+    public ScreenPane myScreenPane;
+    public static ListView adminList, taskList, proList, employeeSelect, employeeSelected,
             vehicleEquipSelect, vehicleEquipSelected, custListing, taskTypeList;
-    public Label changeMe;
-    public TitledPane ManagerStatus, PeopleBox, VehiclesBox, ReportsBox, createJob;
-    public Pane CreateJobBox, settingsPane, displayJobs;
-    public ToolBar AdminToolBar, FunctionsToolBar, ReportsToolBar, employeeToolbar;
-    public TableView usersTable;
-    public TableView<employee> employeeTable = new TableView<employee>();
-    public TableColumn emp_fname, emp_lname, emp_phone, emp_email;
-    public Button chgPasswd, addEmp, addVehBut, deleteVehBut, clearJob,
-            saveJob, confirmJob, cancelJob, addCustBut, addTask;
+    public static Label changeMe;
+    public static TitledPane ManagerStatus, PeopleBox, VehiclesBox, ReportsBox, createJob;
+    public static Pane CreateJobBox, settingsPane, displayJobs;
+    public static ToolBar AdminToolBar, FunctionsToolBar, ReportsToolBar, employeeToolbar;
+    public static TableView usersTable;
+    public static TableView<employee> employeeTable = new TableView<employee>();
+    public static TableColumn emp_fname, emp_lname, emp_phone, emp_email;
+    public static Button chgPasswd, addEmp, addVehBut, deleteVehBut, clearJob,
+            saveJob, confirmJob, cancelJob, addCustBut, addTask, delTask;
     //All stuff on job creation form
-    public Text setCustPhone, setCustName, setCustCity, setCustState, setCustPOC, setCustCompPhone,
+    public static Text setCustPhone, setCustName, setCustCity, setCustState, setCustPOC, setCustCompPhone,
             setCustFax, setCustAddr, setCustZip;
-    public TextField jobTitle, jobName, custJobNum, custJobName, startDate, startTime,
-            streetAddr, city, state, zip;
-    String jobTitleStr, jobNameStr, custJobNumStr, custJobNameStr, startDateStr, startTimeStr,
+    public static TextField jobTitle, jobName, custJobNum, custJobName, startDate, startTime,
+            streetAddr, city, state, zip, diamStr, feetStr;
+    public static String jobTitleStr, jobNameStr, custJobNumStr, custJobNameStr, startDateStr, startTimeStr,
             streetAddrStr, cityStr, stateStr, zipStr, custAdd, phone, fax, pocName, pocPhone;
-    public ComboBox screenList, taskComboBox;
-    ObservableList<String> admin = FXCollections.observableArrayList(
+    public static ComboBox screenList, taskComboBox;
+    public static RadioButton prodChk, hourChk;
+    public static TextArea sInstr, tInstr, dInstr, wInstr;
+    public static ObservableList<String> admin = FXCollections.observableArrayList(
             "Manager status", "People", "Vehicles", "Create/Delete a JobCenter User", "Settings");
     //ObservableList<String> functions = FXCollections.observableArrayList(
     //      "Show job board", "Summary report");
-    ObservableList<String> tasks = FXCollections.observableArrayList(
+    public static ObservableList<String> tasks = FXCollections.observableArrayList(
             "Create new job", "Display jobs");
-    ObservableList<String> proposals = FXCollections.observableArrayList(
+    public static  ObservableList<String> proposals = FXCollections.observableArrayList(
             "New proposal");
-    List<String> list = new ArrayList<String>();
-    ObservableList<String> options = FXCollections.observableList(list);
-    ObservableList<String> taskListBox = FXCollections.observableList(list);
-    ObservableList<String> taskTypeListStr = FXCollections.observableList(list);
+    public static List<String> list = new ArrayList<String>();
     
-    List<String> empListSel = new ArrayList<String>();
-    List<String> vehList = new ArrayList<String>();
-    List<String> custList = new ArrayList<String>();
-    List<String> jobTypePicked = new ArrayList<String>();
-    ObservableList<String> vehList11 = FXCollections.observableArrayList(vehList);
-    ObservableList<String> empSelect = FXCollections.observableArrayList(empListSel);
-    ObservableList<String> custListingObs = FXCollections.observableArrayList(custList);
+    public static ObservableList<String> options = FXCollections.observableList(list),
+    taskListBox = FXCollections.observableList(list),
+    taskTypeListStr = FXCollections.observableList(list);
+    
+    List<String> empListSel = new ArrayList<String>(),
+    vehList = new ArrayList<String>(),
+    custList = new ArrayList<String>(),
+    jobTypePicked = new ArrayList<String>();
+    
+    ObservableList<String> vehList11 = FXCollections.observableArrayList(vehList),
+    empSelect = FXCollections.observableArrayList(empListSel),
+    custListingObs = FXCollections.observableArrayList(custList);
+    
+    
+    public static String billing, cid, jobtypecompiled, empCompiled, equipCompiled, sI,dI,tI,wI;
 
     /**
      * Initializes the controller class.
@@ -339,7 +348,7 @@ public class JobCenterMainController implements Initializable, ScreenController 
 
                 clearPane();
                 if (new_val == "Create new job") {
-                    taskListBox = FXCollections.observableList(new ArrayList<String>()); 
+                    taskListBox = FXCollections.observableList(new ArrayList<String>());
 
                     List<String> getJobTypes = new ArrayList<String>();
                     //make the connection
@@ -392,18 +401,31 @@ public class JobCenterMainController implements Initializable, ScreenController 
     //*********************************************************************************
     //BUTTON ACTION LISTNERS HERE!!!! this coordinates to the JavaFX Scene Builder
     static Stage stageJob;
-    
-     @FXML
-    private void addTaskList(ActionEvent event) 
-     {
-          String itemChosen = taskComboBox.getValue().toString();
-          
-          System.out.println(itemChosen);
-          
-          taskTypeListStr.add(itemChosen);
-          taskTypeList.setItems(taskTypeListStr);
-          
-     }
+
+    @FXML
+    private void delTaskList(ActionEvent event) {
+        String del = taskTypeList.getSelectionModel().selectedItemProperty().getValue().toString();
+        System.out.println("delete: " + del);
+        for (int i = 0; i < taskTypeListStr.size(); i++) {
+            if (taskTypeListStr.get(i).toString().equals(del)) {
+                taskTypeListStr.remove(i);
+            }
+        }
+        taskTypeList.setItems(taskTypeListStr);
+    }
+
+    @FXML
+    private void addTaskList(ActionEvent event) {
+        String itemChosen = taskComboBox.getValue().toString();
+        itemChosen += "," + diamStr.getText() + ",";
+        itemChosen += feetStr.getText();
+
+        System.out.println(itemChosen);
+
+        taskTypeListStr.add(itemChosen);
+        taskTypeList.setItems(taskTypeListStr);
+
+    }
 
     @FXML
     private void addCustButAction(ActionEvent event) throws SQLException {
@@ -416,6 +438,7 @@ public class JobCenterMainController implements Initializable, ScreenController 
 
         rs = st.executeQuery(qry);
         while (rs.next()) {
+            cid = rs.getString(1);
             streetAddrStr = rs.getString(4);
             cityStr = rs.getString(5);
             stateStr = rs.getString(6);
@@ -448,8 +471,27 @@ public class JobCenterMainController implements Initializable, ScreenController 
         custJobNameStr = custJobName.getText();
         startDateStr = jobName.getText();
         startTimeStr = custJobNum.getText();
-
-        System.out.println("Job title: " + jobTitleStr);
+        
+        jobtypecompiled ="";
+        empCompiled="";
+        equipCompiled="";
+        
+        //compile job types 
+        for (int i = 0; i < taskTypeListStr.size(); i++) {
+            jobtypecompiled += "/"+taskTypeListStr.get(i);
+        }
+        
+        //compile employees  
+        for(int j=0;j<empListSel.size();j++){
+            empCompiled += "/"+empListSel.get(j);
+        }
+        
+        //compile equipment  
+        for(int k=0;k<vehList.size();k++){
+            equipCompiled += "/"+vehList.get(k);
+        }
+        
+        System.out.println("CID: " + cid);
         System.out.println("Job name: " + jobNameStr);
         System.out.println("Cust job #: " + custJobNumStr);
         System.out.println("Cust job name: " + custJobNameStr);
@@ -459,6 +501,24 @@ public class JobCenterMainController implements Initializable, ScreenController 
         System.out.println("city: " + city.getText());
         System.out.println("state: " + state.getText());
         System.out.println("zip: " + zip.getText());
+
+        if (prodChk.isSelected()) {
+            billing = "Production Payment";
+        }
+        if (hourChk.isSelected()) {
+            billing = "Hourly Payment";
+        }
+
+         sI=sInstr.getText();
+         dI=dInstr.getText();
+         tI=tInstr.getText();
+         wI=wInstr.getText();
+         
+        System.out.println(sI);
+        System.out.println(dI);
+        System.out.println(tI);
+        System.out.println(wI);
+
 
 
         Parent root = FXMLLoader.load(getClass().getResource("confirm_job.fxml"));
@@ -483,21 +543,44 @@ public class JobCenterMainController implements Initializable, ScreenController 
         empSelect = FXCollections.observableArrayList(empListSel);
         employeeSelected.setItems(empSelect);
 
-        List<String> getJobTypes = new ArrayList<String>();
-        //make the connection
-        try {
-            conn = DriverManager.getConnection(url, userdb, passdb);
-            st = conn.createStatement();
-            rs = st.executeQuery("select jobName from jobType;");
-            while (rs.next()) {
-                System.out.println(rs.getString(1));
-                getJobTypes.add(rs.getString(1));
+        jobTitle.setText("");
+        jobName.setText("");
+        custJobNum.setText("");
+        custJobName.setText("");
+        jobName.setText("");
+        custJobNum.setText("");
 
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(JobCenterController.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        CreateJobBox.setVisible(true); 
+        streetAddr.setText("");
+        city.setText("");
+        state.setText("");
+        zip.setText("");
+        startDate.setText("");
+        startTime.setText("");
+
+        setCustPhone.setText("");
+        setCustName.setText("");
+        setCustCity.setText("");
+        setCustState.setText("");
+        setCustPOC.setText("");
+        setCustCompPhone.setText("");
+        setCustFax.setText("");
+        setCustAddr.setText("");
+        setCustZip.setText("");
+
+        feetStr.setText("");
+        diamStr.setText("");
+
+        sInstr.setText("");
+        dInstr.setText("");
+        tInstr.setText("");
+        wInstr.setText("");
+
+
+        taskTypeListStr.clear();
+        taskTypeList.setItems(taskTypeListStr);
+
+
+        CreateJobBox.setVisible(true);
     }
 
     @FXML

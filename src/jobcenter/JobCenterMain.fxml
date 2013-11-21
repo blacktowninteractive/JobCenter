@@ -156,20 +156,20 @@
                     <TextField fx:id="zip" blendMode="DIFFERENCE" layoutX="390.0" layoutY="136.0" prefWidth="133.0" />
                     <Text font="$x1" layoutX="235.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions (disposal)" underline="true" />
                     <Text font="$x1" layoutX="297.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Billing" underline="true" />
-                    <RadioButton blendMode="SRC_OVER" layoutX="302.0" layoutY="32.0" mnemonicParsing="false" text="Hourly" />
-                    <RadioButton blendMode="SRC_OVER" layoutX="372.0" layoutY="32.0" mnemonicParsing="false" text="Production" />
+                    <RadioButton fx:id="hourChk" blendMode="SRC_OVER" layoutX="302.0" layoutY="32.0" mnemonicParsing="false" text="Hourly" />
+                    <RadioButton fx:id="prodChk" blendMode="SRC_OVER" layoutX="372.0" layoutY="32.0" mnemonicParsing="false" text="Production" />
                     <Text font="$x1" layoutX="14.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions (traffic control)" underline="true" />
                     <Text font="$x1" layoutX="235.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions (water source)" underline="true" />
                     <Text font="$x1" layoutX="14.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Special Instructions" underline="true" />
-                    <TextArea blendMode="DIFFERENCE" layoutX="13.0" layoutY="401.0" prefHeight="38.532501220703125" prefWidth="204.0" promptText="" wrapText="true" />
-                    <TextArea blendMode="DIFFERENCE" layoutX="235.0" layoutY="401.0" prefHeight="38.532501220703125" prefWidth="204.0" promptText="" wrapText="true" />
-                    <TextArea blendMode="DIFFERENCE" layoutX="14.0" layoutY="463.0" prefHeight="38.532501220703125" prefWidth="204.0" promptText="" wrapText="true" />
-                    <TextArea blendMode="DIFFERENCE" layoutX="235.0" layoutY="463.0" prefHeight="38.532501220703125" prefWidth="204.0" promptText="" wrapText="true" />
+                    <TextArea fx:id="sInstr" blendMode="DIFFERENCE" layoutX="13.0" layoutY="401.0" prefHeight="38.532501220703125" prefWidth="204.0" promptText="" wrapText="true" />
+                    <TextArea fx:id="dInstr" blendMode="DIFFERENCE" layoutX="235.0" layoutY="401.0" prefHeight="38.532501220703125" prefWidth="204.0" promptText="" wrapText="true" />
+                    <TextArea fx:id="tInstr" blendMode="DIFFERENCE" layoutX="14.0" layoutY="463.0" prefHeight="38.532501220703125" prefWidth="204.0" promptText="" wrapText="true" />
+                    <TextArea fx:id="wInstr" blendMode="DIFFERENCE" layoutX="235.0" layoutY="463.0" prefHeight="38.532501220703125" prefWidth="204.0" promptText="" wrapText="true" />
                     <Text font="$x1" layoutX="14.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Task" underline="true" />
                     <Text font="$x1" layoutX="158.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diameter" underline="true" />
                     <Text font="$x1" layoutX="233.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feet" underline="true" />
-                    <TextField blendMode="DIFFERENCE" layoutX="158.0" layoutY="293.0" prefWidth="68.0" />
-                    <TextField blendMode="DIFFERENCE" layoutX="233.0" layoutY="293.0" prefWidth="68.0" />
+                    <TextField fx:id="diamStr" blendMode="DIFFERENCE" layoutX="158.0" layoutY="293.0" prefWidth="68.0" />
+                    <TextField fx:id="feetStr" blendMode="DIFFERENCE" layoutX="233.0" layoutY="293.0" prefWidth="68.0" />
                     <Text fx:id="setCustName" font="$x1" layoutX="115.0" layoutY="200.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="test" />
                     <Text fx:id="setCustAddr" layoutX="115.0" layoutY="215.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="test" />
                     <Text fx:id="setCustCity" layoutX="115.0" layoutY="231.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="test" />
@@ -181,7 +181,7 @@
                     <Text id="setCustFas" fx:id="setCustFax" layoutX="348.0" layoutY="261.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="test" />
                     <ListView fx:id="taskTypeList" layoutX="14.0" layoutY="324.0" prefHeight="61.0" prefWidth="388.0" />
                     <Button fx:id="addTask" layoutX="309.0" layoutY="293.0" mnemonicParsing="false" onAction="#addTaskList" prefHeight="22.0" text="Add" />
-                    <ComboBox fx:id="taskComboBox" layoutX="14.0" layoutY="293.0" prefHeight="21.0" prefWidth="133.0">
+                    <ComboBox fx:id="taskComboBox" layoutX="13.0" layoutY="293.0" prefHeight="21.0" prefWidth="133.0">
                       <items>
                         <FXCollections fx:factory="observableArrayList">
                           <String fx:value="Item 1" />
@@ -190,7 +190,7 @@
                         </FXCollections>
                       </items>
                     </ComboBox>
-                    <Button id="" layoutX="360.0" layoutY="293.0" mnemonicParsing="false" onAction="#addTaskList" prefHeight="22.0" text="Del" />
+                    <Button id="" fx:id="delTask" layoutX="360.0" layoutY="293.0" mnemonicParsing="false" onAction="#delTaskList" prefHeight="22.0" text="Del" />
                   </children>
                 </AnchorPane>
               </content>
