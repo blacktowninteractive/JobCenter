@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="662.0" prefWidth="1224.0" snapToPixel="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="jobcenter.DisplayJobBoardController">
+  <children>
+    <Pane blendMode="DIFFERENCE" prefHeight="662.0" prefWidth="1224.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <ToolBar layoutX="0.0" layoutY="0.0" prefWidth="1344.0">
+          <items>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="November 24, 2013" textAlignment="LEFT" x="0.0" />
+            <Button mnemonicParsing="false" text="Print" />
+          </items>
+        </ToolBar>
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>

@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import static jobcenter.JobCenterMainController.stageJob;
 
 /**
  * FXML Controller class
@@ -59,11 +60,13 @@ public class Confirm_jobController extends JobCenterMainController
        String qry = "INSERT INTO currentjobs (CurJobID, Customer_CID, "
             + "CustJobNum, CustJobName, JobTitle, JobName, JobWorkDate, "
             + "JobStartTime, JobType, JobEmployees, JobEandV, S_Instr, "
-            + "D_Instr, T_Instr, W_Instr, billing) "
+            + "D_Instr, T_Instr, W_Instr, billing,status, jobSiteAddr,"
+               + "jobCitySite, jobStateLoc, jobZipLoc) "
             + "VALUES (NULL, '"+cid+"', '"+custJobNumStr+"', '"+custJobNameStr+"', '"+jobTitleStr+
                 "', '"+jobNameStr+"', '"+startDateStr+"', '"+startTimeStr+"', '"+jobtypecompiled+
                 "','"+empCompiled+"', '"+equipCompiled+"', '"+sI+"', '"+dI+"'"
-        + ", '"+tI+"', '"+wI+"', '"+billing+"');";
+        + ", '"+tI+"', '"+wI+"', '"+billing+"','"+status+"','"+ streetAddr +"','"+  
+               city+"','"+ state+"','"+ zip+");";
         System.out.println("qry: "+qry);
         
         
@@ -85,7 +88,8 @@ public class Confirm_jobController extends JobCenterMainController
   
         //set our session id and ip address in order to identify user.
         int executeUpdate = updateDb.executeUpdate(qry);
-        
+        //refreshList();
+         stageJob.close();
     }
 
     @FXML

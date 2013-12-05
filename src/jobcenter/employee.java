@@ -15,13 +15,13 @@ public class employee {
     private final SimpleStringProperty firstName;
     private final SimpleStringProperty lastName;
     private final SimpleStringProperty email;
-    private final SimpleStringProperty phone;
+    private final SimpleStringProperty phoneStr;
 
     public employee(String fName, String lName, String email, String phone) {
         this.firstName = new SimpleStringProperty(fName);
         this.lastName = new SimpleStringProperty(lName);
         this.email = new SimpleStringProperty(email);
-        this.phone = new SimpleStringProperty(phone);
+        this.phoneStr = new SimpleStringProperty(phone);
     }
 
     public String getFirstName() {
@@ -33,11 +33,11 @@ public class employee {
     }
 
     public String getPhone() {
-        return firstName.get();
+        return phoneStr.get();
     }
 
-    public void setphone(String fName) {
-        firstName.set(fName);
+    public void setphone(String phoneStrVar) {
+        phoneStr.set(phoneStrVar);
     }
 
     public String getLastName() {

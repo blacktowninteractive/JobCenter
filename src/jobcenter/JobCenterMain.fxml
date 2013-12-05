@@ -40,7 +40,7 @@
             <Color blue="0.875" green="0.875" red="0.875" fx:id="x3" />
           </fill>
         </Rectangle>
-        <ImageView fitHeight="38.532501220703125" fitWidth="1270.0" focusTraversable="false" layoutX="-2.0" layoutY="3.0" opacity="0.67" pickOnBounds="true" preserveRatio="false">
+        <ImageView fitHeight="38.532501220703125" fitWidth="1270.0" focusTraversable="false" layoutX="-2.0" layoutY="3.0" opacity="0.67" pickOnBounds="true" preserveRatio="false" visible="true">
           <image>
             <Image url="@grid-background-09.jpg" />
           </image>
@@ -62,112 +62,99 @@
         </Label>
       </children>
     </Pane>
-    <Rectangle arcHeight="5.0" arcWidth="5.0" depthTest="DISABLE" fill="$x3" height="596.0" layoutX="0.0" layoutY="66.0" stroke="$x3" strokeType="INSIDE" width="204.0" />
-    <Accordion blendMode="DIFFERENCE" cache="false" layoutX="0.0" layoutY="64.0" mouseTransparent="false" opacity="1.0" prefHeight="608.0">
-      <effect>
-        <ColorAdjust contrast="0.38167938931297707" />
-      </effect>
-      <expandedPane>
-        <TitledPane fx:id="x4" animated="true" font="$x1" prefHeight="562.0" text="Administration">
-          <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-              <children>
-                <ListView fx:id="adminList" editable="false" prefHeight="403.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-              </children>
-            </AnchorPane>
-          </content>
-        </TitledPane>
-      </expandedPane>
-      <panes>
-        <fx:reference source="x4" />
-        <TitledPane fx:id="x2" animated="true" font="$x1" text="Tasks">
-          <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-              <children>
-                <ListView fx:id="taskList" prefHeight="403.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-              </children>
-            </AnchorPane>
-          </content>
-        </TitledPane>
-        <TitledPane fx:id="x9" animated="true" font="$x1" prefHeight="454.0" text="Proposals">
-          <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-              <children>
-                <ListView fx:id="proList" prefHeight="403.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-              </children>
-            </AnchorPane>
-          </content>
-        </TitledPane>
-      </panes>
-    </Accordion>
-    <Pane fx:id="pane1" layoutX="204.0" layoutY="66.0" prefHeight="583.0" prefWidth="1020.0" visible="true">
+    <Pane blendMode="DIFFERENCE" layoutX="0.0" layoutY="66.0" prefHeight="596.0" prefWidth="204.0" visible="true">
       <children>
-        <Pane fx:id="employeePane" blendMode="DIFFERENCE" layoutX="-2.0" layoutY="0.0" opacity="1.0" prefHeight="595.9999703002904" prefWidth="1068.0" visible="false">
-          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="575.0" layoutX="0.0" layoutY="31.0" stroke="$x3" strokeType="INSIDE" width="1077.0">
-              <fill>
-                <Color blue="0.750" green="0.750" red="0.750" fx:id="x7" />
-              </fill>
-            </Rectangle>
-            <ToolBar id="AdminToolBar" fx:id="EmployeeToolBar" layoutX="2.0" layoutY="0.0" prefWidth="1066.0" visible="true">
-              <items>
-                <Button mnemonicParsing="false" text="Add" />
-                <Button mnemonicParsing="false" text="Delete" />
-              </items>
-            </ToolBar>
-            <TitledPane id="" fx:id="PeopleBox" animated="false" collapsible="false" expanded="true" focusTraversable="true" layoutX="14.0" layoutY="42.0" minWidth="425.0" prefHeight="534.0" prefWidth="728.0" text="Employees" visible="true">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="$x3" height="621.9999694824219" layoutX="0.0" layoutY="0.0" stroke="$x3" strokeType="INSIDE" width="204.0" />
+        <Accordion cache="false" layoutX="0.0" layoutY="0.0" mouseTransparent="false" opacity="1.0" prefHeight="608.0">
+          <effect>
+            <ColorAdjust contrast="0.38167938931297707" />
+          </effect>
+          <expandedPane>
+            <TitledPane fx:id="x2" animated="true" font="$x1" text="Tasks">
               <content>
-                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="377.0" prefWidth="538.0" visible="true">
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
-                    <TableView fx:id="employeeTable" editable="false" prefHeight="408.9998779296875" prefWidth="624.9998779296875" tableMenuButtonVisible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                      <columns>
-                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="99.0" text="First name" fx:id="emp_fname" />
-                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="106.0" text="Last name" fx:id="emp_lname" />
-                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="106.0" text="Phone" fx:id="emp_phone" />
-                        <TableColumn editable="true" maxWidth="5000.0" minWidth="10.0" prefWidth="106.0" text="Email" visible="true" fx:id="emp_email" />
-                      </columns>
-                    </TableView>
+                    <ListView fx:id="taskList" prefHeight="403.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                   </children>
                 </AnchorPane>
+              </content>
+            </TitledPane>
+          </expandedPane>
+          <panes>
+            <TitledPane fx:id="x4" animated="true" font="$x1" prefHeight="562.0" text="Administration">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                    <ListView fx:id="adminList" editable="false" prefHeight="403.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  </children>
+                </AnchorPane>
+              </content>
+            </TitledPane>
+            <fx:reference source="x2" />
+            <TitledPane fx:id="x9" animated="true" font="$x1" prefHeight="551.9998779296875" text="Proposals">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                    <ListView fx:id="proList" prefHeight="403.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  </children>
+                </AnchorPane>
+              </content>
+            </TitledPane>
+          </panes>
+        </Accordion>
+      </children>
+    </Pane>
+    <Pane fx:id="pane1" layoutX="204.0" layoutY="66.0" prefHeight="583.0" prefWidth="1020.0" visible="true">
+      <children>
+        <Pane fx:id="managerPane" blendMode="DIFFERENCE" layoutX="0.0" layoutY="0.0" prefHeight="608.0" prefWidth="1054.0" visible="false">
+          <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="$x3" height="608.0" layoutX="0.0" layoutY="0.0" stroke="$x3" strokeType="INSIDE" width="1054.0" />
+            <TitledPane animated="false" layoutX="14.0" layoutY="14.0" prefHeight="461.0" prefWidth="470.0" text="Managers">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </TitledPane>
           </children>
         </Pane>
         <Pane fx:id="CreateJobBox" blendMode="DIFFERENCE" focusTraversable="false" layoutX="0.0" layoutY="0.0" prefHeight="622.0" prefWidth="1052.0" visible="false">
           <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bfbfbf" height="597.0" layoutX="-2.0" layoutY="23.0" stroke="BLACK" strokeType="INSIDE" visible="true" width="1054.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="597.0" layoutX="-2.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" visible="true" width="1054.0">
+              <fill>
+                <Color blue="0.749" green="0.749" red="0.749" fx:id="x8" />
+              </fill>
+            </Rectangle>
             <TitledPane fx:id="createJob" animated="false" collapsible="false" layoutX="12.0" layoutY="44.0" minWidth="293.0" prefHeight="538.0" prefWidth="539.0" text="Create New Job" visible="true" wrapText="false">
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.9998779296875" prefWidth="570.0">
                   <children>
-                    <Text layoutX="18.0" layoutY="51.0" scaleX="1.0" scaleY="1.000006265295975" strokeType="OUTSIDE" strokeWidth="0.0" text="Job#" />
-                    <Text layoutX="18.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Job Name" />
-                    <Text layoutX="18.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cust Job #" />
-                    <Text layoutX="18.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cust Job Name" />
-                    <Text layoutX="18.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" />
-                    <Text layoutX="18.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Time" />
+                    <Text layoutX="14.0" layoutY="51.0" scaleX="1.0" scaleY="1.000006265295975" strokeType="OUTSIDE" strokeWidth="0.0" text="Job#V-" />
+                    <Text layoutX="14.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Job Name" />
+                    <Text layoutX="14.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cust Job #" />
+                    <Text layoutX="14.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cust Job Name" />
+                    <Text layoutX="14.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" />
+                    <Text layoutX="14.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Time" />
                     <Text font="$x1" layoutX="14.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Job Information" underline="true" />
                     <Text font="$x1" layoutX="14.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer" underline="true" />
                     <TextField fx:id="jobTitle" blendMode="DIFFERENCE" layoutX="114.0" layoutY="36.0" prefWidth="159.0" />
-                    <TextField fx:id="jobName" blendMode="DIFFERENCE" layoutX="114.0" layoutY="56.0" prefWidth="159.0" />
+                    <TextField fx:id="jobName" blendMode="DIFFERENCE" layoutX="114.0" layoutY="56.0" prefWidth="159.0" visible="true" />
                     <TextField fx:id="custJobNum" blendMode="DIFFERENCE" layoutX="114.0" layoutY="76.0" prefWidth="159.0" />
                     <TextField fx:id="custJobName" blendMode="DIFFERENCE" layoutX="114.0" layoutY="96.0" prefWidth="159.0" />
                     <TextField fx:id="startDate" blendMode="DIFFERENCE" layoutX="114.0" layoutY="116.0" prefWidth="159.0" />
                     <TextField fx:id="startTime" blendMode="DIFFERENCE" layoutX="114.0" layoutY="136.0" prefWidth="159.0" />
-                    <Text layoutX="19.0" layoutY="200.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Company Name:" />
-                    <Text layoutX="19.0" layoutY="215.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Street Address:" />
-                    <Text layoutX="19.0" layoutY="231.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="City:" />
+                    <Text layoutX="14.0" layoutY="200.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Company Name:" />
+                    <Text layoutX="14.0" layoutY="215.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Street Address:" />
+                    <Text layoutX="14.0" layoutY="231.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="City:" />
                     <Text layoutX="252.0" layoutY="231.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="State:" />
                     <Text layoutX="322.0" layoutY="231.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Zip:" />
-                    <Text layoutX="19.0" layoutY="246.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Point of contact:" />
-                    <Text layoutX="19.0" layoutY="261.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone:" />
+                    <Text layoutX="14.0" layoutY="246.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Point of contact:" />
+                    <Text layoutX="14.0" layoutY="261.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone:" />
                     <Text layoutX="252.0" layoutY="246.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Company phone:" />
                     <Text layoutX="252.0" layoutY="261.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Fax:" />
                     <Text font="$x1" layoutX="298.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Job Site" underline="true" />
-                    <Text layoutX="303.0" layoutY="92.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Street Address" />
-                    <Text layoutX="303.0" layoutY="112.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
-                    <Text layoutX="303.0" layoutY="132.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="State" />
-                    <Text layoutX="303.0" layoutY="152.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Zip" />
+                    <Text layoutX="298.0" layoutY="92.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Street Address" />
+                    <Text layoutX="298.0" layoutY="112.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
+                    <Text layoutX="298.0" layoutY="132.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="State" />
+                    <Text layoutX="298.0" layoutY="152.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="Zip" />
                     <TextField fx:id="streetAddr" blendMode="DIFFERENCE" layoutX="390.0" layoutY="76.0" prefWidth="133.0" />
                     <TextField fx:id="city" blendMode="DIFFERENCE" layoutX="390.0" layoutY="96.0" prefWidth="133.0" />
                     <TextField fx:id="state" blendMode="DIFFERENCE" layoutX="390.0" layoutY="116.0" prefWidth="133.0" />
@@ -188,13 +175,13 @@
                     <Text font="$x1" layoutX="233.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feet" underline="true" />
                     <TextField fx:id="diamStr" blendMode="DIFFERENCE" layoutX="158.0" layoutY="293.0" prefWidth="68.0" />
                     <TextField fx:id="feetStr" blendMode="DIFFERENCE" layoutX="233.0" layoutY="293.0" prefWidth="68.0" />
-                    <Text fx:id="setCustName" font="$x1" layoutX="115.0" layoutY="200.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
-                    <Text fx:id="setCustAddr" layoutX="115.0" layoutY="215.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
-                    <Text fx:id="setCustCity" layoutX="115.0" layoutY="231.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
-                    <Text fx:id="setCustState" layoutX="288.0" layoutY="231.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="test" />
+                    <Text fx:id="setCustName" font="$x1" layoutX="110.0" layoutY="200.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                    <Text fx:id="setCustAddr" layoutX="110.0" layoutY="215.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                    <Text fx:id="setCustCity" layoutX="110.0" layoutY="231.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                    <Text fx:id="setCustState" layoutX="288.0" layoutY="231.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
                     <Text fx:id="setCustZip" layoutX="348.0" layoutY="231.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
-                    <Text fx:id="setCustPOC" layoutX="115.0" layoutY="246.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
-                    <Text fx:id="setCustPhone" layoutX="115.0" layoutY="261.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                    <Text fx:id="setCustPOC" layoutX="110.0" layoutY="246.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                    <Text fx:id="setCustPhone" layoutX="110.0" layoutY="261.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
                     <Text fx:id="setCustCompPhone" layoutX="348.0" layoutY="246.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
                     <Text id="setCustFas" fx:id="setCustFax" layoutX="348.0" layoutY="261.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
                     <ListView fx:id="taskTypeList" layoutX="14.0" layoutY="324.0" prefHeight="61.0" prefWidth="388.0" />
@@ -209,11 +196,21 @@
                       </items>
                     </ComboBox>
                     <Button id="" fx:id="delTask" layoutX="360.0" layoutY="293.0" mnemonicParsing="false" onAction="#delTaskList" prefHeight="22.0" text="Del" />
+                    <ComboBox fx:id="jobStatus" layoutX="390.0" layoutY="185.0" prefHeight="21.0" prefWidth="133.0">
+                      <items>
+                        <FXCollections fx:factory="observableArrayList">
+                          <String fx:value="Item 1" />
+                          <String fx:value="Item 2" />
+                          <String fx:value="Item 3" />
+                        </FXCollections>
+                      </items>
+                    </ComboBox>
+                    <Text font="$x1" layoutX="390.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Job status" underline="true" />
                   </children>
                 </AnchorPane>
               </content>
             </TitledPane>
-            <ToolBar fx:id="createJobToolbar" layoutX="0.0" layoutY="-1.0" minHeight="23.94140625" prefHeight="31.0" prefWidth="1066.0">
+            <ToolBar fx:id="createJobToolbar" layoutX="0.0" layoutY="-1.0" minHeight="23.94140625" prefHeight="31.0" prefWidth="1066.0" visible="false">
               <items>
                 <Button fx:id="saveJob" mnemonicParsing="false" onAction="#saveJobDb" text="Save" />
                 <Button fx:id="clearJob" mnemonicParsing="false" onAction="#clearJobEntries" text="Clear" />
@@ -240,11 +237,11 @@
                 </AnchorPane>
               </content>
             </TitledPane>
-            <TitledPane id="vehicleEquipSelect" animated="false" collapsible="false" layoutX="585.0" layoutY="415.0" prefHeight="165.00009155273438" prefWidth="404.99995585936995" text="Vehicles/Equipment">
+            <TitledPane id="vehicleEquipSelect" animated="false" collapsible="false" expanded="true" layoutX="585.0" layoutY="415.0" prefHeight="165.00009155273438" prefWidth="404.99995585936995" text="Vehicles/Equipment">
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
-                    <ListView fx:id="vehicleEquipSelect" prefHeight="101.0" prefWidth="178.00009999999747" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="219.0" AnchorPane.topAnchor="31.0" />
+                    <ListView fx:id="vehicleEquipSelect" prefHeight="101.0" prefWidth="178.00009999999747" visible="true" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="219.0" AnchorPane.topAnchor="31.0" />
                     <ToolBar layoutX="0.0" layoutY="0.0" prefWidth="401.0">
                       <items>
                         <Button id="addVehEquip" fx:id="addVehBut" mnemonicParsing="false" onAction="#addVehEquip" text="Add" />
@@ -285,89 +282,95 @@
                 </AnchorPane>
               </content>
             </TitledPane>
+            <ToolBar fx:id="editJobToolbar" layoutX="0.0" layoutY="0.0" minHeight="23.941399438474036" prefHeight="31.0" prefWidth="1065.999977929685" visible="true">
+              <items>
+                <Button fx:id="saveChangesBut" minHeight="19.31036376953125" mnemonicParsing="false" onAction="#saveChangesAction" prefHeight="19.310455322265625" text="Save changes" />
+              </items>
+            </ToolBar>
           </children>
         </Pane>
-        <Label fx:id="changeMe" layoutX="14.0" layoutY="14.0" text="">
-          <font>
-            <Font name="System Bold" size="16.0" />
-          </font>
-        </Label>
-        <TitledPane id="Manager" fx:id="ManagerStatus" animated="false" collapsible="false" expanded="true" layoutX="14.0" layoutY="47.0" minWidth="425.0" prefHeight="403.0" prefWidth="561.0" text="Managers status today" visible="false">
-          <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="377.0" prefWidth="538.0">
-              <children>
-                <TableView prefHeight="342.0" prefWidth="421.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                  <columns>
-                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="99.0" text="Manager" />
-                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="106.0" text="Status" />
-                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="106.0" text="Edit" />
-                  </columns>
-                </TableView>
-              </children>
-            </AnchorPane>
-          </content>
-        </TitledPane>
-        <TitledPane id="Manager" fx:id="VehiclesBox" animated="false" collapsible="false" expanded="true" focusTraversable="true" layoutX="14.0" layoutY="47.0" minWidth="425.0" prefHeight="403.0" prefWidth="561.0" text="Vehicles" visible="false">
-          <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="377.0" prefWidth="538.0">
-              <children>
-                <TableView prefHeight="408.9998779296875" prefWidth="624.9998779296875" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                  <columns>
-                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="99.0" text="Vehicle" />
-                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="106.0" text="Status" />
-                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="106.0" text="Assigned" />
-                  </columns>
-                </TableView>
-              </children>
-            </AnchorPane>
-          </content>
-        </TitledPane>
-        <ToolBar id="FunctionsTool" fx:id="FunctionsToolBar" layoutX="0.0" layoutY="0.0" prefWidth="781.0" visible="false">
-          <items>
-            <Button mnemonicParsing="false" text="Fullscreen" />
-          </items>
-        </ToolBar>
-        <ToolBar fx:id="ReportsToolBar" layoutX="0.0" layoutY="0.0" prefWidth="671.0" visible="false">
-          <items>
-            <Button mnemonicParsing="false" text="Generate Report" />
-          </items>
-        </ToolBar>
-        <TitledPane fx:id="ReportsBox" animated="false" collapsible="false" layoutX="10.0" layoutY="42.0" prefHeight="403.0" prefWidth="560.0" text="Reports Summary" visible="false">
-          <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-              <children>
-                <ListView layoutX="14.0" layoutY="14.0" prefHeight="349.0" prefWidth="214.0" />
-                <Button layoutX="250.0" layoutY="218.0" mnemonicParsing="false" text="Display" />
-                <Label layoutX="250.0" layoutY="14.0" text="Description" underline="true" />
-                <TextArea editable="false" layoutX="250.0" layoutY="37.0" prefWidth="266.0" text="Date created: 11/1/2013&#10;Employee: John Doe&#10;&#10;Notes: There was a problem with some things, will talk about with you in the morning." wrapText="true" />
-              </children>
-            </AnchorPane>
-          </content>
-        </TitledPane>
-        <ToolBar id="EmployeeToolbar" fx:id="AdminToolBar" layoutX="0.0" layoutY="-1.0" visible="false">
-          <items>
-            <Button mnemonicParsing="false" text="Button" />
-          </items>
-        </ToolBar>
-        <Pane fx:id="displayJobs" blendMode="DIFFERENCE" disable="false" layoutX="0.0" layoutY="0.0" prefHeight="597.0" prefWidth="753.0" visible="false">
+        <Pane fx:id="employeePane" blendMode="DIFFERENCE" layoutX="-2.0" layoutY="0.0" opacity="1.0" prefHeight="595.9999703002904" prefWidth="1068.0" visible="false">
+          <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="608.0" layoutX="0.0" layoutY="0.0" stroke="$x3" strokeType="INSIDE" width="1077.0">
+              <fill>
+                <Color blue="0.750" green="0.750" red="0.750" fx:id="x7" />
+              </fill>
+            </Rectangle>
+            <TitledPane id="" fx:id="PeopleBox" animated="false" collapsible="false" expanded="true" focusTraversable="true" layoutX="14.0" layoutY="14.0" minWidth="425.0" prefHeight="498.0" prefWidth="544.0" text="Employees" visible="true">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="477.9998779296875" prefWidth="540.0" visible="true">
+                  <children>
+                    <TableView fx:id="employeeTable" editable="false" prefHeight="391.0" prefWidth="542.0" tableMenuButtonVisible="false" visible="true" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="30.0">
+                      <columns>
+                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="99.0" text="First name" fx:id="emp_fname" />
+                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="106.0" text="Last name" fx:id="emp_lname" />
+                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="106.0" text="Phone" fx:id="emp_phone" />
+                        <TableColumn editable="true" maxWidth="5000.0" minWidth="10.0" prefWidth="106.0" text="Email" visible="true" fx:id="emp_email" />
+                      </columns>
+                    </TableView>
+                    <ToolBar layoutX="0.0" layoutY="-1.0" prefWidth="540.0">
+                      <items>
+                        <Button fx:id="deleteEmpBut" defaultButton="true" mnemonicParsing="false" onAction="#deleteEmpAction" text="Delete" />
+                      </items>
+                    </ToolBar>
+                    <TextField id="fNameStr" fx:id="fNameStrIns" layoutX="10.0" layoutY="428.0" prefHeight="31.0" prefWidth="98.0" promptText="First Name" />
+                    <TextField id="lNameStr" fx:id="lNameStrIns" layoutX="108.0" layoutY="428.0" prefHeight="31.0" prefWidth="98.0" promptText="Last Name" text="" />
+                    <TextField id="phoneStr" fx:id="phoneStrIns" layoutX="206.0" layoutY="428.0" prefHeight="31.0" prefWidth="98.0" promptText="Phone" />
+                    <TextField fx:id="emailStrIns" layoutX="304.0" layoutY="428.0" prefHeight="31.0" prefWidth="98.0" promptText="Email" />
+                    <Button fx:id="addEmployeeBut" defaultButton="true" layoutX="411.0" layoutY="428.0" mnemonicParsing="false" onAction="#addEmployeeAction" prefHeight="31.0" text="Add" visible="true" />
+                  </children>
+                </AnchorPane>
+              </content>
+            </TitledPane>
+          </children>
+        </Pane>
+        <Pane fx:id="displayJobs" blendMode="DIFFERENCE" disable="false" layoutX="0.0" layoutY="0.0" prefHeight="597.0" prefWidth="753.0" visible="true">
           <children>
             <ToolBar fx:id="displayJobsToolbar" layoutX="0.0" layoutY="0.0" prefWidth="1066.0" visible="true">
               <items>
-                <Button mnemonicParsing="false" text="Display Job Board" />
-                <Button mnemonicParsing="false" text="Summary Report" />
+                <Button fx:id="displayJobBut" mnemonicParsing="false" onAction="#displayJobAction" text="Display Job Board" />
+                <Button fx:id="summaryBut" mnemonicParsing="false" onAction="#summaryAction" text="Summary Report" />
               </items>
             </ToolBar>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="$x7" height="599.0" layoutX="-2.0" layoutY="30.0" stroke="#808080" strokeType="INSIDE" width="1066.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="$x7" height="599.0" layoutX="-2.0" layoutY="31.0" stroke="GREY" strokeType="INSIDE" width="1066.0" />
             <TitledPane animated="true" collapsible="false" layoutX="10.0" layoutY="42.0" prefHeight="538.0" prefWidth="510.0" text="Current Jobs">
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
                     <ToolBar layoutX="0.0" layoutY="-1.0" prefWidth="506.0">
                       <items>
-                        <Button mnemonicParsing="false" text="Edit" />
+                        <Button fx:id="editJobBut" mnemonicParsing="false" onAction="#editJobAction" text="Edit" />
                       </items>
                     </ToolBar>
-                    <TreeView fx:id="currentJobsDisplay" disable="false" editable="false" focusTraversable="true" layoutX="0.0" layoutY="30.0" prefHeight="484.0" prefWidth="508.0" visible="true" />
+                    <TreeView fx:id="currentJobsDisplay" disable="false" editable="false" focusTraversable="true" layoutX="0.0" layoutY="30.0" prefHeight="484.0" prefWidth="508.0" showRoot="false" visible="true" />
+                  </children>
+                </AnchorPane>
+              </content>
+            </TitledPane>
+            <TitledPane animated="false" layoutX="535.0" layoutY="42.0" text="Add employee">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="371.0">
+                  <children>
+                    <ListView fx:id="empAddJobView" prefHeight="149.99990000000253" prefWidth="371.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+                    <ToolBar layoutX="0.0" layoutY="0.0" prefWidth="371.0">
+                      <items>
+                        <Button mnemonicParsing="false" onAction="#addEmpToTree" text="Add" />
+                      </items>
+                    </ToolBar>
+                  </children>
+                </AnchorPane>
+              </content>
+            </TitledPane>
+            <TitledPane animated="false" layoutX="535.0" layoutY="262.0" prefWidth="375.0" text="Add vehicle/equipment">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                    <ListView fx:id="vehAddJobView" prefHeight="150.0" prefWidth="371.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+                    <ToolBar layoutX="0.0" layoutY="0.0" prefWidth="371.0">
+                      <items>
+                        <Button fx:id="addVehEqToTreeBut" mnemonicParsing="false" onAction="#addVehEqToTree" text="Add" />
+                      </items>
+                    </ToolBar>
                   </children>
                 </AnchorPane>
               </content>
@@ -377,7 +380,7 @@
         <Pane fx:id="settingsPane" blendMode="DIFFERENCE" layoutX="0.0" layoutY="1.0" prefHeight="606.0" prefWidth="1024.0" visible="false">
           <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="$x3" height="606.0" layoutX="-2.0" layoutY="-1.0" stroke="#9f9f9f" strokeType="INSIDE" width="1068.0" />
-            <TitledPane animated="false" collapsible="false" depthTest="ENABLE" disable="false" expanded="true" focusTraversable="true" layoutX="14.0" layoutY="14.0" opacity="1.0" prefHeight="229.00009155273438" prefWidth="448.0" text="Preferences" visible="true">
+            <TitledPane animated="false" collapsible="false" depthTest="ENABLE" disable="false" expanded="true" focusTraversable="true" layoutX="14.0" layoutY="14.0" opacity="1.0" prefHeight="221.00009155273438" prefWidth="448.0" text="Preferences" visible="true">
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="235.0" prefWidth="388.0">
                   <children>
@@ -386,14 +389,27 @@
                         <Font name="Vani" size="12.0" fx:id="x5" />
                       </font>
                     </Text>
-                    <Text font="$x5" layoutX="7.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
-                    <Text font="$x5" layoutX="7.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
-                    <Text font="$x5" layoutX="7.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
-                    <Text font="$x5" layoutX="131.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-                    <Text font="$x5" layoutX="131.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-                    <Text font="$x5" layoutX="131.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="********" />
-                    <Button fx:id="chgPasswd" alignment="BOTTOM_CENTER" contentDisplay="CENTER" defaultButton="true" focusTraversable="false" font="$x6" graphicTextGap="2.0" layoutX="7.0" layoutY="98.0" mnemonicParsing="false" onAction="#handlePasswdAction" text="Edit password" />
-                    <ComboBox fx:id="screenList" layoutX="166.0" layoutY="161.0" prefHeight="21.0" prefWidth="185.0">
+                    <Text font="$x5" layoutX="8.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserID:" />
+                    <Text font="$x5" layoutX="7.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
+                    <Text font="$x5" layoutX="7.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
+                    <Text font="$x5" layoutX="131.0" layoutY="51.0" scaleX="0.9999957311990406" scaleY="0.9999950517059335" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                    <Text font="$x5" layoutX="131.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                    <Text font="$x5" layoutX="131.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="********" />
+                    <Button fx:id="chgPasswd" alignment="BOTTOM_CENTER" contentDisplay="CENTER" defaultButton="true" focusTraversable="false" font="$x6" graphicTextGap="2.0" layoutX="8.0" layoutY="163.0" mnemonicParsing="false" onAction="#handlePasswdAction" text="Edit password" />
+                    <Text font="$x5" layoutX="8.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
+                    <Text font="$x5" layoutX="131.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                    <Text font="$x5" layoutX="8.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
+                    <Text font="$x5" layoutX="131.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                    <Button defaultButton="true" layoutX="8.0" layoutY="90.0" mnemonicParsing="false" text="Edit" />
+                  </children>
+                </AnchorPane>
+              </content>
+            </TitledPane>
+            <TitledPane animated="false" layoutX="14.0" layoutY="247.0" prefHeight="143.0" prefWidth="448.0" text="Screen">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.00009999999747" prefWidth="201.9998779296875">
+                  <children>
+                    <ComboBox fx:id="screenList" layoutX="120.0" layoutY="32.0" prefHeight="21.0" prefWidth="185.0">
                       <items>
                         <FXCollections fx:factory="observableArrayList">
                           <String fx:value="Item 1" />
@@ -402,35 +418,49 @@
                         </FXCollections>
                       </items>
                     </ComboBox>
-                    <Text font="$x5" layoutX="7.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Screen Display" underline="true" />
-                    <Text font="$x5" layoutX="7.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show Job Board" />
-                    <Button fx:id="setJobBut" defaultButton="true" layoutX="360.0" layoutY="161.0" mnemonicParsing="false" onAction="#setJobBoard" text="Set" visible="true" />
+                    <Text font="$x5" layoutX="6.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Screen Display" underline="true" />
+                    <Text font="$x5" layoutX="6.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show Job Board" />
+                    <Button fx:id="setJobBut" defaultButton="true" layoutX="314.0" layoutY="32.0" mnemonicParsing="false" onAction="#setJobBoard" text="Set" visible="true" />
                   </children>
                 </AnchorPane>
               </content>
             </TitledPane>
           </children>
         </Pane>
-        <ToolBar id="usersToolbar" layoutX="10.0" layoutY="10.0" prefWidth="660.0" visible="false">
-          <items>
-            <Button mnemonicParsing="false" text="Create new user" />
-            <Button mnemonicParsing="false" text="Delete user" />
-          </items>
-        </ToolBar>
-        <ToolBar id="usersToolbar" fx:id="employeeToolbar" layoutX="0.0" layoutY="0.0" prefWidth="781.0" visible="false">
-          <items>
-            <Button mnemonicParsing="false" text="Add employee" />
-            <Button mnemonicParsing="false" text="Delete employee" />
-          </items>
-        </ToolBar>
-        <TableView id="userTable" fx:id="usersTable" layoutX="2.0" layoutY="30.0" prefHeight="564.0" prefWidth="1020.000022070315" visible="false">
-          <columns>
-            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="150.0" text="Last name" fx:id="lname" />
-            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="150.0" text="First name" />
-            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="150.0" text="Username" />
-            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="150.0" text="Privledges" />
-          </columns>
-        </TableView>
+        <Pane fx:id="startPaneNothing" blendMode="DIFFERENCE" layoutX="0.0" layoutY="0.0" prefHeight="604.0" prefWidth="1066.0" visible="false">
+          <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="$x3" height="622.0" layoutX="0.0" layoutY="0.0" stroke="$x3" strokeType="INSIDE" width="1066.0" />
+          </children>
+        </Pane>
+        <Pane id="employeePane" fx:id="equipVehPane" blendMode="DIFFERENCE" layoutX="0.0" layoutY="0.0" opacity="1.0" prefHeight="595.9999703002904" prefWidth="1068.0" visible="false">
+          <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="$x8" height="608.0" layoutX="0.0" layoutY="0.0" stroke="#dfdfdf" strokeType="INSIDE" width="1077.0" />
+            <TitledPane id="" animated="false" collapsible="false" expanded="true" focusTraversable="true" layoutX="14.0" layoutY="14.0" minWidth="425.0" prefHeight="498.0" prefWidth="544.0" text="Vehicles and Equipment" visible="true">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="477.9998779296875" prefWidth="540.0" visible="true">
+                  <children>
+                    <TableView fx:id="equipmentTable" editable="false" prefHeight="391.0" prefWidth="542.0" tableMenuButtonVisible="false" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="30.0">
+                      <columns>
+                        <TableColumn id="vehNameIns" maxWidth="5000.0" minWidth="10.0" prefWidth="99.0" text="Vehicle Name" fx:id="vehNameIns" />
+                        <TableColumn id="typeIns" maxWidth="5000.0" minWidth="10.0" prefWidth="106.0" text="Type" fx:id="typeIns" />
+                        <TableColumn prefWidth="75.0" text="Status" visible="true" fx:id="statusIns" />
+                      </columns>
+                    </TableView>
+                    <ToolBar layoutX="0.0" layoutY="-1.0" prefWidth="540.0">
+                      <items>
+                        <Button fx:id="deleteEquipBut" defaultButton="true" mnemonicParsing="false" onAction="#deleteEquipAction" text="Delete" />
+                      </items>
+                    </ToolBar>
+                    <Button fx:id="addEquipBut" defaultButton="true" layoutX="316.0" layoutY="427.0" mnemonicParsing="false" onAction="#addEquipAction" prefHeight="31.0" text="Add" />
+                    <TextField fx:id="vehNameNew" layoutX="14.0" layoutY="427.0" prefHeight="31.0" prefWidth="97.0" promptText="Vehicle Name" />
+                    <TextField fx:id="typeNew" layoutX="111.0" layoutY="427.0" prefHeight="31.0" prefWidth="97.0" promptText="Vehicle Type" />
+                    <TextField fx:id="statusNew" layoutX="208.0" layoutY="427.0" prefHeight="31.0" prefWidth="97.0" promptText="Status" />
+                  </children>
+                </AnchorPane>
+              </content>
+            </TitledPane>
+          </children>
+        </Pane>
       </children>
     </Pane>
   </children>
